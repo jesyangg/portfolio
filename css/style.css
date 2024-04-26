@@ -2031,3 +2031,7 @@ footer p{
   margin: auto;
   color: grey;
 }
+
+.prototype {
+  margin:40px;
+}
