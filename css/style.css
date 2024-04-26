@@ -1258,9 +1258,8 @@ animation: fade-up 0.5s;
 
   .navlink:hover{
     transform: scale(1.2);
+    
   }
-  
-  
 
   .navbutton:hover {
     transform: scale(1.1);
@@ -1710,6 +1709,7 @@ margin-top: 2%;
   width: 100%;
   margin-bottom: 1rem;
   border-radius: 0.7rem;
+  animation: fade-up 0.5s;
 }
 
 .playcontainer .image-container img:hover {
@@ -1734,7 +1734,7 @@ width: 80%;
 justify-self: center;
 justify-content: center;
   font-size: 18px;;
-
+animation: fade-up 0.5s;
 }
 
 
@@ -1744,7 +1744,7 @@ margin:auto;
  object-fit: cover;
 width: 90%;
 height: 77%;
-
+animation: fade-up 0.5s;
 }
 
 
@@ -1754,14 +1754,24 @@ height: 77%;
   align-items: center;
 }
 
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translate(-10%, -10%)
+
+  }
+}
+
 #howdy {
   position: absolute;
   width: 13vh;
   top: 43%; 
   left: 58%; 
   transform: translate(-10%, -10%); /* Center the speech bubble relative to (X, Y) */
+animation: slide-in 0.5s;
 }
-
 
 .whydesign {
   margin: 80px 100px 100px 100px;
@@ -1770,7 +1780,8 @@ height: 77%;
 
 
 
-.overview p {
+
+.overview p{
   font-size:16px;
 }
 
@@ -1795,6 +1806,31 @@ height: 77%;
   width: 130vh;
 }
 
+@media screen and (max-width: 800px) {
+  .overview {
+width: 70vh;
+  }
+.personaimgs img {
+  width: 70%;
+}
+  }
+
+
+@media screen and (max-width: 500px) {
+  .overview {
+width: 50vh;
+  }
+
+}
+@media screen and (max-width: 600px) {
+.personaimgs {
+  flex-direction: column;
+}
+.personaimgs img {
+  width: 70vh;
+}
+ }
+
 .sectionlabel {
  margin:auto;;
  align-self: center;
@@ -1817,20 +1853,19 @@ height: 77%;
 
 #aboutmeheader {
   margin-bottom: 10px;
-  font-size: 50px;
+  font-size: 36px;
 }
 
 #aboutmeheader2 {
   margin: 0px;
- font-size: 20px;
+ font-size: 21px;
  margin-bottom: 27px;
  font-style: italic;
  font-weight: normal;
- font-size: 27px;
 }
 
 .aboutmep {
-  font-size: 23px;
+  font-size: 16px;
   line-height: 1.1;
 }
 
@@ -1840,7 +1875,7 @@ height: 77%;
 }
 
 
-.persona:hover {
+.persona:hover, .screen1:hover, .screen2:hover {
 transform: translateY(-20px);
 transform: scale(1.03);
 }
@@ -1854,11 +1889,21 @@ transform: scale(1.03);
  font-size: 17px;
 }
 
-.research ol, .research ul {
+.research ol, .research ul, .limitations  {
   font-size: 17px;
   margin: 30px 70px 30px 70px;
   line-height: 1.6;
  }
+
+ .limitations ul {
+  margin: 50px;
+ }
+
+ .limitations li {
+  font-weight: bold;
+ }
+
+
 
  
  .personas {
@@ -1907,20 +1952,82 @@ display: flex;
 }
 
 
-.screen1 {
-width: 37%;
+
+.core {
+  width:100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.coreimg {
+  width: 560px;
+margin: auto;
+
+}
+
+.core p {
+  font-size: 16px;
+  margin: 0px 50px -35px 50px;
+
+}
+
+.wireframes {
+  font-size: 17px;
+  margin: 30px 70px 30px 70px;
+}
+.finalscreenscontainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature1,
+.feature2 {
+  display: flex;
+  width: 80%; /* Adjust this as needed */
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Optional: Adds some space between each feature */
+gap: 100px;
+margin-top: 50px;
+}
+
+.screen1{
+  /* Adjust width as necessary, utilizing max-width so the image is responsive and does not exceed its natural size */
+  max-width: 400px;
+  height: auto; /* Keep images proportional */
+  transition: 0.1s;
 }
 
 .screen2 {
-  width: 40%;
-  }
-
-.feature1 {
-  display: flex;
-  flex-direction: row;
+  /* Adjust width as necessary, utilizing max-width so the image is responsive and does not exceed its natural size */
+  max-width: 200px;
+  height: auto; /* Keep images proportional */
+  transition: 0.1s;
 }
 
-.feature2 {
-  display: flex;
-  flex-direction: row;
+/* Use this for spacing around your text */
+.featuretext {
+  padding: 10px; /* Adjust as needed */
+}
+
+/* If you want to apply margins for mobile responsiveness */
+@media (max-width: 768px) { /* Example breakpoint - adjust as needed */
+  .feature1, .feature2 {
+    flex-direction: column; /* Stack image and text on top of each other on smaller screens */
+  }
+  
+  .screen1,
+  .screen2 {
+    width: 90%; /* Allow image to take more space on smaller screens */
+  }
+}
+
+footer p{
+  margin: auto;
+  color: grey;
 }
