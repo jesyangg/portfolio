@@ -1703,6 +1703,7 @@ margin-top: 2%;
 .playcontainer .image-container {
   columns: 15rem 3;
   gap: 1.4rem;
+  justify-content: center;
 }
 
 .playcontainer .image-container img {
@@ -1713,10 +1714,189 @@ margin-top: 2%;
 }
 
 .playcontainer .image-container img:hover {
-  transform: scale(1.01);
+  transform: scale(1.04);
+}
+
+.playcontainer .image-container img {
+  transition: 0.1s;
+}
+
+.lightbox {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 9999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.9);
+  
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  padding: 20px; /* Add some padding */
+}
+
+.lightbox .lightbox-content {
+  position: relative; /* Use relative instead of absolute */
+  max-width: 80%; /* Max width of the image */
+  max-height: 80vh; /* Max height based on the viewport height */
+}
+
+.lightbox .lightbox-image {
+  width: auto;
+  height: auto;
+ max-height: 90%;
+ max-width: 50%;
+ object-fit:contain;
+  display: block; /* Necessary to allow width/height to work properly */
+  border-radius: 0.7rem; /* Optional border radius */
+
+}
+
+.close, .prev, .next {
+  color: white;
+  position: fixed; /* Changed from absolute to fixed */
+  top: 50%;
+  font-size: 3rem;
+  padding: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.close {
+  right: 35px;
+  top: 40px; /* Adjust as needed */
+  font-size: 2rem;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 0;
+  /* If you need the arrow to be vertically centered, add the transform property */
+  transform: translateY(-50%);
+}
+
+.next {
+  right: 0;
+  /* If you need the arrow to be vertically centered, add the transform property */
+  transform: translateY(-50%);
+}
+
+.no-hover-effect:hover {
+  transform: none; /* This will override the scale effect */
 }
 
 
+body.lightboxed .playcontainer .image-container img:hover {
+  transform: none;
+}
+
+.playslider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30px;
+  
+}
+
+.playslider nav {
+  position: relative;
+  height: 50px;
+  width:400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-up 0.3s
+
+}
+
+.playslider nav::after {
+  content: "";
+  background: silver;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 47px;
+  filter: blur(0.5px);
+}
+
+.playslider nav label {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-align:center;
+  line-height: 50px;
+  cursor: pointer; 
+  font-size: 14px;
+  font-weight: 300;
+  transition: all ease;
+  color: rgb(118, 118, 118);
+  
+}
+
+#infographics:checked ~ nav label.infographics,
+#photography:checked ~ nav label.photography {
+  
+  font-weight: 600;
+  color: rgb(82, 82, 82);
+
+}
+
+
+input[type = 'radio'] {
+  display: none;
+}
+
+
+.playslider nav .slider {
+  position: absolute;
+  height: 4.5px;
+  background-color: rgb(82, 82, 82);
+  border-radius: 20px;
+  width: 50%;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  transition: all 0.25s ease;
+  filter: blur(0.4px);
+}
+
+
+#infographics:checked ~ nav .slider {
+left: 0%;
+}
+
+#photography:checked ~ nav .slider {
+left: 50%;
+}
+
+section {
+  filter: blur(0.3px);
+  width: 80%;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+
+
+
+.content {
+  display: none;
+}
+
+/* Show the infographics section when the corresponding radio button is checked */
+#infographics:checked ~ .playcontainer #infographics-section {
+display: contents;
+
+}
+
+/* Show the photography section when the corresponding radio button is checked */
+#photography:checked ~ .playcontainer #photography-section {
+  display: contents;
+}
 
 .aboutmesection {
 display: flex;
