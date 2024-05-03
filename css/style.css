@@ -21,6 +21,28 @@
     gap: 10px;
 }
 
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 25px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #333;
+}
+
+
+
 .skip {
     left:-999px;
     position:absolute;
@@ -1330,6 +1352,7 @@ animation: fade-up 0.5s;
   .body {
     background-color: #fdfdfd;
     font-size: 15px;
+  
   }
   
   .image {
@@ -1458,14 +1481,13 @@ transform: translateY(0px) scale(1);
     border-radius: 40px;
     flex-flow: column;
     max-width: 63%;
-
-    margin-bottom: 225px;
     padding-bottom: 0;
     font-family: Inter, sans-serif;
     display: flex;
     box-shadow: 0 13px 20px 3px rgba(50, 50, 50, .2);
     transition: all 0.1s;
     margin: auto;
+
   }
 
   .div-block:hover {
@@ -1477,6 +1499,7 @@ transform: translateY(-30px);
     border-bottom-left-radius: 40px;
     margin-bottom: 0;
     padding: 22px 58px 85px;
+    z-index: 0;
   }
   
   .text-block {
@@ -2214,4 +2237,137 @@ footer p{
 
 .prototype {
   margin:40px;
+}
+
+
+
+
+
+@media (max-width: 768px) { /* Set a breakpoint for mobile devices */
+  .hamburger {
+    display: flex;
+  }
+  
+  .navbarmenu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #fff;
+    top: 10%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .navbarmenu a {
+    background-color: ;
+  }
+
+  #navMenu {
+    display: none;
+  }
+  
+  /* When the .active class is added, display the menu */
+  #navMenu.active {
+    display: flex;
+  }
+
+
+  .poopframe {
+    object-fit: contain;
+  }
+ 
+  .heroleft {
+    flex-direction: column; /* Align items in a column */
+    align-items: center; /* Align items to the start of the flex container */
+    padding: 18px 40px ; /* Adjust padding as necessary */
+  
+  }
+
+  .container-6 {
+    order: 2;
+    width: 100%; /* Make the container full width */
+    margin-left: 0; /* Reset margins for mobile */
+    margin-right: 0; /* Reset margins for mobile */
+    align-self: stretch; /* Stretch the container to fill the width */
+ display:flex;
+ flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heroleft .image {
+    max-width: 100%; /* Make image full width */
+    margin-right: 0; /* Reset margins for mobile */
+  width: 200px;
+  }
+
+  .container-6 .heading {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .container-6 .paragraph {
+    font-size: 30px;
+    text-align: center;
+    
+  }
+  
+
+  .div-block {
+    margin-top: 300px; /* Add space above .div-block at 400px viewport width or less */
+    /* You can increase the margin value as needed to prevent clipping */
+ padding: 0px;
+  }
+
+  .div-block-2 {
+padding: 30px;
+  }
+
+  .div-block-2 h1 {
+    font-size: 30px;
+  }
+
+  .div-block-2 .text-block {
+    font-size: 14px;
+    padding: 0px 13px 30px 13px;
+  }
+
+  /* Adjust the hero section height or padding if necessary */
+  .poopframe {
+    height: 500px; /* Adjust hero section minimum height for small viewports */
+    padding-bottom: 20px; /* Add some padding below the hero content */
+  object-fit:fill;
+  }
+
+
+  .playslider nav {
+    width: 70%;
+  }
+  .playslider nav label{
+    font-size: 80%;
+  }
+
+
+}
+
+
+
+@media (max-width: 600px) {
+
+.aboutmesection {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
+.parentcontainer {
+  margin-top: 10%;
+}
+
+.aboutmetext {
+  text-align: center;
+  margin-bottom: 30%;
+}
+
 }
