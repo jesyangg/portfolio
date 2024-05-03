@@ -2376,6 +2376,8 @@ iframe {
   width: 100%;
  }
 
+
+
  .finalscreenscontainer .feature1{
  width: 90%;
  gap: 0px;
@@ -2429,4 +2431,32 @@ iframe {
   max-width: 360px;
 }
   
+  }
+
+  @media (max-width: 440px) {
+    .projectspec {
+      max-width: 40vh;
+      margin: 0;
+      padding:0;
+    }
+  }
+  @media (max-width: 360px) {
+    .projectspec {
+      max-width: 30vh;
+      margin: 0;
+      padding:0;
+    }
+  }
+
+  @media (max-width: 880px) {
+    .overview {
+      width: 80vh;
+    }
+  }
+
+  @media (max-width: 790px) {
+    .overview {
+      width: 100%;
+      
+    }
   }
