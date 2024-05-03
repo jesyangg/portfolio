@@ -1,4 +1,15 @@
+
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', function() {
+    navMenu.classList.toggle('active');
+    console.log('poop');
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
+
   let funfactlist = ["I love tea.", "I'm from D.C.!", "I say I'm from D.C. but I'm actually from Virginia.", "Current favorite song: Lego Ring - Faye Webster", "I'm 5'5.", "My mom met Shaq.", "Go-to boba order: mango pomelo sago", "I had a silver tooth as a kid.", "I took horse riding lessons in 4th grade.", "I ate strawberry pancakes yesterday.", "I've won maybe...one game of chess in my entire life.", "KEEP CLICKING."];
 
 
@@ -15,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     rollme.textContent = funfactlist[index];
     index = (index + 1) % funfactlist.length;
   });
+  
 });
 
 
@@ -27,6 +39,10 @@ diceicon.classList.add("dice");
 diceicon.addEventListener("animationend", function(){
   diceicon.classList.remove("dice");
   });
+
+  
+
+
 
 
 /*
